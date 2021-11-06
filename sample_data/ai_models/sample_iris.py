@@ -1,3 +1,7 @@
+# This is a sample AI model, I have no idea what this does, this is purely for testing the implementation of
+# executing and inserting code into a user specified .py file.
+# Source: https://machinelearningmastery.com/machine-learning-in-python-step-by-step/
+
 from pandas import read_csv
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import classification_report
