@@ -1,29 +1,17 @@
-from PyQt5.QtWidgets import QApplication, QWidget, QFileDialog
-from PyQt5.uic import loadUi
+from PyQt5.QtWidgets import QApplication, QStackedWidget
+from UI.dataset_window import DatasetWindow
+from UI.ai_model_window import AiModelWindow
+from UI.xai_model_window import XaiModelWindow
 import sys
 
 
-class MainWindow(QWidget):
-    def __init__(self):
-        super(MainWindow, self).__init__()
-        loadUi("gui.ui", self)
-
-        self.browseDataset.clicked.connect(self.browse_dataset)
-        self.browseAIModel.clicked.connect(self.browse_aimodel)
-
-    def browse_dataset(self):
-        fname = QFileDialog.getOpenFileName(self, 'Open file', 'C:/')
-        self.pathDataset.setText(fname[0])
-
-    def browse_aimodel(self):
-        fname = QFileDialog.getOpenFileName(self, 'Open file', 'C:/')
-        self.pathAIModel.setText(fname[0])
-
-
-if __name__ == "__main__":
+if __name__ == '__main__':
     app = QApplication(sys.argv)
-
-    widget = MainWindow()
-    widget.show()
+    
+    stackedWidget = QStackedWidget()
+    datasetWindow, aiModelWindow = DatasetWindow(stackedWidget), AiModelWindow(stackedWidget)
+    xaiModelWindow = XaiModelWindow(stackedWidget, datasetWindow, aiModelWindow)
+    [stackedWidget.addWidget(window) for window in [datasetWindow, aiModelWindow, xaiModelWindow]]
+    stackedWidget.show()
 
     sys.exit(app.exec_())
