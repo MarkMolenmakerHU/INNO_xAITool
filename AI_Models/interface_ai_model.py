@@ -1,6 +1,6 @@
 from typing import Tuple
 
 
-class AiModelInterface:
+class InterfaceAiModel:
     def train_model(self, dataset_url: str) -> Tuple[float, float]:
-        return
+        pass

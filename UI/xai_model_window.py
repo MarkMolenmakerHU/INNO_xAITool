@@ -1,6 +1,7 @@
-from PyQt5.QtWidgets import QMainWindow, QStackedWidget
 from PyQt5.uic import loadUi
-from importlib.machinery import SourceFileLoader
+from PyQt5.QtWidgets import QMainWindow, QStackedWidget
+from Helpers.class_helper import load_class
+from AI_Models.interface_ai_model import InterfaceAiModel
 
 
 class XaiModelWindow(QMainWindow):
@@ -17,5 +18,6 @@ class XaiModelWindow(QMainWindow):
         self.stackedWidget.setCurrentIndex(self.stackedWidget.currentIndex() - 1)
 
     def next(self):
-        aimodel = SourceFileLoader('aimodel', self.aiModelWindow.file_name).load_module()
-        aimodel.train_model(self.datasetWindow.file_name)
+        ai_class = load_class('ai_model', self.aiModelWindow.file_name, InterfaceAiModel)
+        accuracy, f1 = ai_class.train_model(self.datasetWindow.file_name)
+        print(f'Accuracy: {accuracy:0.2}, F1: {f1:0.2}')

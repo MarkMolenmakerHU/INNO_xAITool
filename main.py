@@ -7,7 +7,7 @@ import sys
 
 if __name__ == '__main__':
     app = QApplication(sys.argv)
-    
+  
     stackedWidget = QStackedWidget()
     datasetWindow, aiModelWindow = DatasetWindow(stackedWidget), AiModelWindow(stackedWidget)
     xaiModelWindow = XaiModelWindow(stackedWidget, datasetWindow, aiModelWindow)
