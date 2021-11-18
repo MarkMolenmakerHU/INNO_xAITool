@@ -127,7 +127,7 @@ border-radius: 20px;</string>
               <string/>
              </property>
              <property name="pixmap">
-              <pixmap>../Images/lime.jpg</pixmap>
+              <pixmap>Images/lime.jpg</pixmap>
              </property>
              <property name="scaledContents">
               <bool>true</bool>

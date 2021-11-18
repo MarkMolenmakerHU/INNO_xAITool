@@ -1,13 +1,13 @@
 from PyQt5.QtWidgets import QApplication, QStackedWidget
-from UI.dataset_window import DatasetWindow
-from UI.ai_model_window import AiModelWindow
-from UI.xai_model_window import XaiModelWindow
+from UI.Code.dataset_window import DatasetWindow
+from UI.Code.ai_model_window import AiModelWindow
+from UI.Code.xai_model_window import XaiModelWindow
 import sys
 
 
 if __name__ == '__main__':
     app = QApplication(sys.argv)
-  
+
     stackedWidget = QStackedWidget()
     datasetWindow, aiModelWindow = DatasetWindow(stackedWidget), AiModelWindow(stackedWidget)
     xaiModelWindow = XaiModelWindow(stackedWidget, datasetWindow, aiModelWindow)
