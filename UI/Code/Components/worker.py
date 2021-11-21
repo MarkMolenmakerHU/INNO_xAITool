@@ -1,22 +1,29 @@
 from PyQt5.QtCore import QObject, pyqtSignal
-
+from PyQt5.QtCore import QThread
 
 class Worker(QObject):
-    done = pyqtSignal(bool)
+    started = pyqtSignal(bool)
+    finished = pyqtSignal(bool)
 
-    def __init__(self, parent=None):
-        super().__init__(parent)
+    def __init__(self, job):
+        super().__init__(None)
+        self.job = job
 
-    def doWork(self, job):
-        print("Start")
-        job()
-        self.done.emit(True)
-        print("done")
+        self.thread = QThread()
+        self.moveToThread(self.thread)
+        
+        # self.finished.connect(self.thread.quit)
+        # self.finished.connect(self.deleteLater)
+        # self.thread.finished.connect(self.thread.deleteLater)
 
+        self.thread.started.connect(self.do)
+        
+    def start(self):
+        self.thread.start()
 
-# self.thread = QThread(self)
-# self.worker = Worker()
-# self.worker.moveToThread(self.thread) # worker will be runned in another thread
-# self.worker.done.connect(lambda: print("test")) # Call load_data_to_tree when worker.done is emitted
-# self.thread.started.connect(self.worker.doWork) # Call worker.doWork when the thread starts
-# self.thread.start() # Start the thread (and run doWork)
+    def do(self):
+        print("Started Thread")
+        self.started.emit(True)
+        self.job()
+        self.finished.emit(True)
+        print("Finished Thread")

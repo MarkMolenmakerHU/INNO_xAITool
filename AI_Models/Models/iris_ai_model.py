@@ -1,4 +1,4 @@
-from AI_Models.interface_ai_model import InterfaceAiModel
+from AI_Models.Models.interface_ai_model import InterfaceAiModel
 from numpy.lib.function_base import average
 from pandas import read_csv
 from sklearn.model_selection import train_test_split

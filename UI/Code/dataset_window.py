@@ -1,6 +1,5 @@
-from PyQt5.QtWidgets import QMainWindow, QFileDialog, QStackedWidget, QGraphicsDropShadowEffect
+from PyQt5.QtWidgets import QMainWindow, QFileDialog, QPushButton, QStackedWidget, QGraphicsDropShadowEffect
 from PyQt5.uic import loadUi
-from UI.Code.Components.loader import Loader
 
 
 class DatasetWindow(QMainWindow):
@@ -12,7 +11,6 @@ class DatasetWindow(QMainWindow):
         self.nextButton.clicked.connect(self.next)
         self.browseButton.clicked.connect(self.browse)
         self.breastCancerWidget.mouseReleaseEvent = self.select
-        Loader(self.nextButton)
 
     def next(self):
         self.stackedWidget.setCurrentIndex(self.stackedWidget.currentIndex() + 1)
