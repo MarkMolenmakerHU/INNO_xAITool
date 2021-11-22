@@ -1,31 +1,35 @@
-from PyQt5.QtWidgets import QLabel, QHBoxLayout
-from PyQt5.QtGui import QMovie
+from PyQt5.QtGui import QIcon, QMovie
+from PyQt5.QtCore import QSize
 import os
 
 
 class Loader:
     def __init__(self, parent):
-        self.parent = parent
+        self.wrapper = [parent]
+        self.parent.setIconSize(QSize(50, 50))
 
-        self.label = QLabel(self.parent)
-        self.label.setScaledContents(True)
-
-        self.hl = QHBoxLayout(self.parent)
-        self.hl.addWidget(self.label)
-        
         directory_path = os.path.dirname(__file__)
         file_path = os.path.join(directory_path, '../../Design/Gifs/spinner.gif')
         self.movie = QMovie(file_path)
 
+    @property
+    def parent(self):
+        return self.wrapper[0]
+
+    @property
+    def icon(self):
+        return QIcon(self.movie.currentPixmap())
+    
     def start(self):
         self.movie.start()
-        self.update(self.movie, False)
+        self.update(self.icon, False)
+        self.movie.frameChanged.connect(lambda: self.parent.setIcon(self.icon))
 
     def stop(self):
         self.movie.stop()
-        self.update(None, True)
+        self.update(QIcon(), True)
 
-    def update(self, movie, enabled):
-        self.label.setMovie(movie)
-        self.label.update()
+    def update(self, icon, enabled):
+        self.parent.setIcon(icon)
+        self.parent.update()
         self.parent.setEnabled(enabled)

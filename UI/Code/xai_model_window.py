@@ -1,10 +1,11 @@
 from PyQt5.uic import loadUi
 from PyQt5.QtWidgets import QMainWindow, QStackedWidget
 from Helpers.class_helper import load_class
-from Helpers.model_helper import train_model
+from Helpers.model_helper import train_ai_model, train_xai_model
 from AI_Models.Models.interface_ai_model import InterfaceAiModel
 from UI.Code.Components.worker import Worker
 from UI.Code.Components.loader import Loader
+from XAI_Models.Models.lime import LimeXaiModel
 
 
 class XaiModelWindow(QMainWindow):
@@ -32,6 +33,8 @@ class XaiModelWindow(QMainWindow):
 
     def train(self):
         ai_class = load_class('ai_module', self.aiModelWindow.file_name, InterfaceAiModel)
-        accuracy, f1 = train_model(ai_class, self.datasetWindow.file_name)
-        print(f'Done! (Accuracy: {accuracy:0.2}, F1: {f1:0.2})')
+        model, data, names, scores = train_ai_model(ai_class, self.datasetWindow.file_name)
+        xai_class = LimeXaiModel()
+        results = train_xai_model(xai_class, model, data, names)
+        print(f"Done! (Accuracy: {scores['accuracy']:0.2}, F1: {scores['f1']:0.2}, Results: {results})")
 

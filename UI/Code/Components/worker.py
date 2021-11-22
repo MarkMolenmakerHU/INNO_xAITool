@@ -11,11 +11,6 @@ class Worker(QObject):
 
         self.thread = QThread()
         self.moveToThread(self.thread)
-        
-        # self.finished.connect(self.thread.quit)
-        # self.finished.connect(self.deleteLater)
-        # self.thread.finished.connect(self.thread.deleteLater)
-
         self.thread.started.connect(self.do)
         
     def start(self):

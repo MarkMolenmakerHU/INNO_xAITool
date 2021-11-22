@@ -1,5 +1,6 @@
-from PyQt5.QtWidgets import QMainWindow, QFileDialog, QPushButton, QStackedWidget, QGraphicsDropShadowEffect
+from PyQt5.QtWidgets import QMainWindow, QFileDialog, QStackedWidget, QGraphicsDropShadowEffect
 from PyQt5.uic import loadUi
+from UI.Code.Components.loader import Loader
 
 
 class DatasetWindow(QMainWindow):
