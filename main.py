@@ -9,7 +9,8 @@ if __name__ == '__main__':
     app = QApplication(sys.argv)
     
     stackedWidget = QStackedWidget()
-    datasetWindow, aiModelWindow = DatasetWindow(stackedWidget), AiModelWindow(stackedWidget)
+    datasetWindow = DatasetWindow(stackedWidget)
+    aiModelWindow = AiModelWindow(stackedWidget, datasetWindow)
     xaiModelWindow = XaiModelWindow(stackedWidget, datasetWindow, aiModelWindow)
     [stackedWidget.addWidget(window) for window in [datasetWindow, aiModelWindow, xaiModelWindow]]
     stackedWidget.show()

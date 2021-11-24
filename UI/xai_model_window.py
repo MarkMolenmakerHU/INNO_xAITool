@@ -1,6 +1,5 @@
 from PyQt5.QtWidgets import QMainWindow, QStackedWidget
 from PyQt5.uic import loadUi
-from importlib.machinery import SourceFileLoader
 
 
 class XaiModelWindow(QMainWindow):
