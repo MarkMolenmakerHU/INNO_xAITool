@@ -6,12 +6,38 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1284</width>
-    <height>729</height>
+    <width>800</width>
+    <height>600</height>
    </rect>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>800</width>
+    <height>600</height>
+   </size>
   </property>
   <property name="windowTitle">
    <string>MainWindow</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">QWidget[border=true] {
+	border: 3px solid black;
+	border-radius: 5px;
+}
+
+QPushButton[href-text=true] {
+	color: blue;
+}
+QPushButton[href-text=true]:hover {
+	color: red;
+}
+
+QWidget[selected=true] {
+	background-color: #88ff88;
+}
+QWidget[selected=false] {
+	background-color: #bbbbbb;
+}</string>
   </property>
   <widget class="QWidget" name="centralwidget">
    <property name="minimumSize">
@@ -20,7 +46,7 @@
      <height>0</height>
     </size>
    </property>
-   <layout class="QGridLayout" name="gridLayout" rowstretch="1,4,0,2,2,1">
+   <layout class="QGridLayout" name="gridLayout" rowstretch="0,0,0,0">
     <property name="leftMargin">
      <number>25</number>
     </property>
@@ -36,442 +62,433 @@
     <property name="spacing">
      <number>10</number>
     </property>
-    <item row="0" column="0">
-     <widget class="QLabel" name="label">
-      <property name="font">
-       <font>
-        <pointsize>18</pointsize>
-        <underline>true</underline>
-       </font>
+    <item row="1" column="0" rowspan="2">
+     <widget class="QWidget" name="horizontalWidget_3" native="true">
+      <property name="minimumSize">
+       <size>
+        <width>750</width>
+        <height>425</height>
+       </size>
       </property>
-      <property name="text">
-       <string>Select AI-Model</string>
+      <property name="maximumSize">
+       <size>
+        <width>750</width>
+        <height>500</height>
+       </size>
       </property>
-      <property name="alignment">
-       <set>Qt::AlignCenter</set>
+      <property name="styleSheet">
+       <string notr="true"/>
       </property>
+      <property name="border" stdset="0">
+       <bool>false</bool>
+      </property>
+      <layout class="QGridLayout" name="gridLayout_2">
+       <property name="leftMargin">
+        <number>0</number>
+       </property>
+       <property name="topMargin">
+        <number>0</number>
+       </property>
+       <property name="rightMargin">
+        <number>0</number>
+       </property>
+       <property name="bottomMargin">
+        <number>0</number>
+       </property>
+       <property name="spacing">
+        <number>0</number>
+       </property>
+       <item row="1" column="0">
+        <widget class="QWidget" name="widget_aimodelA" native="true">
+         <property name="maximumSize">
+          <size>
+           <width>160</width>
+           <height>160</height>
+          </size>
+         </property>
+         <property name="border" stdset="0">
+          <bool>true</bool>
+         </property>
+         <property name="allowed-datasets" stdset="0">
+          <stringlist>
+           <string>dataset_A</string>
+           <string>dataset_B</string>
+          </stringlist>
+         </property>
+         <property name="aimodel" stdset="0">
+          <string>aimodel_A</string>
+         </property>
+         <layout class="QVBoxLayout" name="verticalLayout_4">
+          <item>
+           <widget class="QLabel" name="label_8">
+            <property name="font">
+             <font>
+              <pointsize>14</pointsize>
+             </font>
+            </property>
+            <property name="text">
+             <string>AI-Model Title</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignCenter</set>
+            </property>
+           </widget>
+          </item>
+          <item alignment="Qt::AlignHCenter">
+           <widget class="QLabel" name="label_9">
+            <property name="enabled">
+             <bool>true</bool>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>100</width>
+              <height>100</height>
+             </size>
+            </property>
+            <property name="layoutDirection">
+             <enum>Qt::LeftToRight</enum>
+            </property>
+            <property name="pixmap">
+             <pixmap>../Images/linear-regression_logo.png</pixmap>
+            </property>
+            <property name="scaledContents">
+             <bool>true</bool>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignCenter</set>
+            </property>
+            <property name="wordWrap">
+             <bool>false</bool>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="pushButton_aimodelA_href">
+            <property name="text">
+             <string>Find out more...</string>
+            </property>
+            <property name="flat">
+             <bool>true</bool>
+            </property>
+            <property name="href-text" stdset="0">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item row="1" column="1">
+        <widget class="QWidget" name="widget_aimodelB" native="true">
+         <property name="enabled">
+          <bool>true</bool>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>160</width>
+           <height>160</height>
+          </size>
+         </property>
+         <property name="border" stdset="0">
+          <bool>true</bool>
+         </property>
+         <property name="allowed-datasets" stdset="0">
+          <stringlist>
+           <string>dataset_C</string>
+          </stringlist>
+         </property>
+         <property name="aimodel" stdset="0">
+          <string>aimodel_B</string>
+         </property>
+         <layout class="QVBoxLayout" name="verticalLayout">
+          <item>
+           <widget class="QLabel" name="label_4">
+            <property name="font">
+             <font>
+              <pointsize>14</pointsize>
+             </font>
+            </property>
+            <property name="text">
+             <string>AI-Mode Title</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignCenter</set>
+            </property>
+           </widget>
+          </item>
+          <item alignment="Qt::AlignHCenter">
+           <widget class="QLabel" name="label_5">
+            <property name="enabled">
+             <bool>true</bool>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>100</width>
+              <height>100</height>
+             </size>
+            </property>
+            <property name="layoutDirection">
+             <enum>Qt::LeftToRight</enum>
+            </property>
+            <property name="pixmap">
+             <pixmap>../Images/linear-regression_logo.png</pixmap>
+            </property>
+            <property name="scaledContents">
+             <bool>true</bool>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignCenter</set>
+            </property>
+            <property name="wordWrap">
+             <bool>false</bool>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="pushButton_aimodelB_href">
+            <property name="text">
+             <string>Find out more...</string>
+            </property>
+            <property name="flat">
+             <bool>true</bool>
+            </property>
+            <property name="href-text" stdset="0">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item row="1" column="2">
+        <widget class="QWidget" name="widget_aimodelC" native="true">
+         <property name="enabled">
+          <bool>true</bool>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>160</width>
+           <height>160</height>
+          </size>
+         </property>
+         <property name="border" stdset="0">
+          <bool>true</bool>
+         </property>
+         <property name="allowed-datasets" stdset="0">
+          <stringlist>
+           <string>dataset_A</string>
+          </stringlist>
+         </property>
+         <property name="aimodel" stdset="0">
+          <string>aimodel_C</string>
+         </property>
+         <layout class="QVBoxLayout" name="verticalLayout_3">
+          <item>
+           <widget class="QLabel" name="label_6">
+            <property name="font">
+             <font>
+              <pointsize>14</pointsize>
+             </font>
+            </property>
+            <property name="text">
+             <string>AI-Model Title</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignCenter</set>
+            </property>
+           </widget>
+          </item>
+          <item alignment="Qt::AlignHCenter">
+           <widget class="QLabel" name="label_7">
+            <property name="enabled">
+             <bool>true</bool>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>100</width>
+              <height>100</height>
+             </size>
+            </property>
+            <property name="layoutDirection">
+             <enum>Qt::LeftToRight</enum>
+            </property>
+            <property name="pixmap">
+             <pixmap>../Images/linear-regression_logo.png</pixmap>
+            </property>
+            <property name="scaledContents">
+             <bool>true</bool>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignCenter</set>
+            </property>
+            <property name="wordWrap">
+             <bool>false</bool>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="pushButton_aimodelC_href">
+            <property name="text">
+             <string>Find out more...</string>
+            </property>
+            <property name="flat">
+             <bool>true</bool>
+            </property>
+            <property name="href-text" stdset="0">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+      </layout>
      </widget>
     </item>
-    <item row="4" column="0">
-     <layout class="QHBoxLayout" name="horizontalLayout" stretch="0,0,0">
-      <property name="leftMargin">
-       <number>50</number>
-      </property>
-      <property name="topMargin">
-       <number>25</number>
-      </property>
-      <property name="rightMargin">
-       <number>50</number>
-      </property>
-      <property name="bottomMargin">
-       <number>25</number>
-      </property>
-      <item>
-       <widget class="QLabel" name="label_3">
-        <property name="font">
-         <font>
-          <pointsize>10</pointsize>
-         </font>
-        </property>
-        <property name="text">
-         <string>Path:</string>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QLineEdit" name="pathLine">
-        <property name="sizePolicy">
-         <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
-          <horstretch>0</horstretch>
-          <verstretch>0</verstretch>
-         </sizepolicy>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QPushButton" name="browseButton">
-        <property name="font">
-         <font>
-          <pointsize>10</pointsize>
-         </font>
-        </property>
-        <property name="text">
-         <string>Browse</string>
-        </property>
-       </widget>
-      </item>
-     </layout>
-    </item>
-    <item row="5" column="0">
-     <layout class="QHBoxLayout" name="horizontalLayout_2">
-      <property name="bottomMargin">
-       <number>0</number>
-      </property>
-      <item>
-       <widget class="QPushButton" name="prevButton">
-        <property name="enabled">
-         <bool>true</bool>
-        </property>
-        <property name="sizePolicy">
-         <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
-          <horstretch>0</horstretch>
-          <verstretch>0</verstretch>
-         </sizepolicy>
-        </property>
-        <property name="font">
-         <font>
-          <pointsize>10</pointsize>
-         </font>
-        </property>
-        <property name="text">
-         <string>Previous Step</string>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QPushButton" name="nextButton">
-        <property name="sizePolicy">
-         <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
-          <horstretch>0</horstretch>
-          <verstretch>0</verstretch>
-         </sizepolicy>
-        </property>
-        <property name="font">
-         <font>
-          <pointsize>10</pointsize>
-         </font>
-        </property>
-        <property name="text">
-         <string>Next Step</string>
-        </property>
-       </widget>
-      </item>
-     </layout>
-    </item>
-    <item row="3" column="0">
-     <layout class="QHBoxLayout" name="horizontalLayout_3" stretch="0,0,0">
-      <property name="topMargin">
-       <number>25</number>
-      </property>
-      <property name="bottomMargin">
-       <number>10</number>
-      </property>
-      <item>
-       <widget class="Line" name="line_2">
-        <property name="orientation">
-         <enum>Qt::Horizontal</enum>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QLabel" name="label_2">
-        <property name="sizePolicy">
-         <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
-          <horstretch>0</horstretch>
-          <verstretch>0</verstretch>
-         </sizepolicy>
-        </property>
-        <property name="font">
-         <font>
-          <pointsize>10</pointsize>
-          <italic>true</italic>
-         </font>
-        </property>
-        <property name="text">
-         <string>Custom AI-Model</string>
-        </property>
-        <property name="alignment">
-         <set>Qt::AlignCenter</set>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="Line" name="line">
-        <property name="orientation">
-         <enum>Qt::Horizontal</enum>
-        </property>
-       </widget>
-      </item>
-     </layout>
-    </item>
-    <item row="1" column="0">
-     <widget class="QScrollArea" name="scrollArea">
+    <item row="0" column="0">
+     <widget class="QWidget" name="horizontalWidget_2" native="true">
       <property name="minimumSize">
        <size>
         <width>0</width>
-        <height>325</height>
+        <height>75</height>
        </size>
       </property>
-      <property name="verticalScrollBarPolicy">
-       <enum>Qt::ScrollBarAlwaysOff</enum>
-      </property>
-      <property name="horizontalScrollBarPolicy">
-       <enum>Qt::ScrollBarAlwaysOn</enum>
-      </property>
-      <property name="widgetResizable">
-       <bool>true</bool>
-      </property>
-      <widget class="QWidget" name="scrollAreaWidgetContents">
-       <property name="geometry">
-        <rect>
-         <x>0</x>
-         <y>0</y>
-         <width>1232</width>
-         <height>320</height>
-        </rect>
-       </property>
-       <layout class="QHBoxLayout" name="horizontalLayout_5">
-        <property name="spacing">
-         <number>10</number>
-        </property>
-        <property name="leftMargin">
-         <number>10</number>
-        </property>
-        <property name="topMargin">
-         <number>10</number>
-        </property>
-        <property name="rightMargin">
-         <number>10</number>
-        </property>
-        <property name="bottomMargin">
-         <number>10</number>
-        </property>
-        <item>
-         <widget class="QWidget" name="widget" native="true">
-          <property name="sizePolicy">
-           <sizepolicy hsizetype="Maximum" vsizetype="Maximum">
-            <horstretch>0</horstretch>
-            <verstretch>0</verstretch>
-           </sizepolicy>
-          </property>
-          <property name="minimumSize">
-           <size>
-            <width>300</width>
-            <height>300</height>
-           </size>
-          </property>
-          <property name="styleSheet">
-           <string notr="true">background: rgb(255, 255, 255);
-border-radius: 20px;</string>
-          </property>
-          <layout class="QGridLayout" name="gridLayout_3">
-           <item row="2" column="0" colspan="2">
-            <widget class="QTextBrowser" name="textBrowser_2">
-             <property name="html">
-              <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
-&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
-p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:7.8pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:8pt;&quot;&gt;A decision tree is a flowchart-like structure in which each internal node represents a &amp;quot;test&amp;quot; on an attribute (e.g. whether a coin flip comes up heads or tails), each branch represents the outcome of the test, and each leaf node represents a class label (decision taken after computing all attributes).&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-             </property>
-            </widget>
-           </item>
-           <item row="0" column="1">
-            <widget class="QLabel" name="label_7">
-             <property name="font">
-              <font>
-               <pointsize>12</pointsize>
-               <weight>75</weight>
-               <bold>true</bold>
-              </font>
-             </property>
-             <property name="text">
-              <string>Decision Tree</string>
-             </property>
-            </widget>
-           </item>
-           <item row="0" column="0">
-            <widget class="QLabel" name="label_6">
-             <property name="sizePolicy">
-              <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-               <horstretch>0</horstretch>
-               <verstretch>0</verstretch>
-              </sizepolicy>
-             </property>
-             <property name="maximumSize">
-              <size>
-               <width>50</width>
-               <height>50</height>
-              </size>
-             </property>
-             <property name="text">
-              <string/>
-             </property>
-             <property name="pixmap">
-              <pixmap>../Images/decision-tree.jpg</pixmap>
-             </property>
-             <property name="scaledContents">
-              <bool>true</bool>
-             </property>
-            </widget>
-           </item>
-           <item row="1" column="0" colspan="2">
-            <widget class="Line" name="line_4">
-             <property name="sizePolicy">
-              <sizepolicy hsizetype="Expanding" vsizetype="Minimum">
-               <horstretch>0</horstretch>
-               <verstretch>0</verstretch>
-              </sizepolicy>
-             </property>
-             <property name="minimumSize">
-              <size>
-               <width>0</width>
-               <height>1</height>
-              </size>
-             </property>
-             <property name="styleSheet">
-              <string notr="true">background: rgba(0, 0, 0, 0.1);</string>
-             </property>
-             <property name="midLineWidth">
-              <number>1</number>
-             </property>
-             <property name="orientation">
-              <enum>Qt::Horizontal</enum>
-             </property>
-            </widget>
-           </item>
-          </layout>
-         </widget>
-        </item>
-        <item>
-         <widget class="QWidget" name="limeWidget" native="true">
-          <property name="sizePolicy">
-           <sizepolicy hsizetype="Maximum" vsizetype="Maximum">
-            <horstretch>0</horstretch>
-            <verstretch>0</verstretch>
-           </sizepolicy>
-          </property>
-          <property name="minimumSize">
-           <size>
-            <width>300</width>
-            <height>300</height>
-           </size>
-          </property>
-          <property name="autoFillBackground">
-           <bool>false</bool>
-          </property>
-          <property name="styleSheet">
-           <string notr="true">background: rgb(255, 255, 255);
-border-radius: 20px;</string>
-          </property>
-          <layout class="QGridLayout" name="gridLayout_2" rowstretch="1,0,0" columnstretch="0,0">
-           <property name="verticalSpacing">
-            <number>5</number>
+      <layout class="QHBoxLayout" name="horizontalLayout_2">
+       <item>
+        <layout class="QVBoxLayout" name="verticalLayout_2">
+         <item>
+          <widget class="QLabel" name="label">
+           <property name="font">
+            <font>
+             <pointsize>18</pointsize>
+            </font>
            </property>
-           <item row="0" column="0">
-            <widget class="QLabel" name="label_4">
-             <property name="sizePolicy">
-              <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-               <horstretch>0</horstretch>
-               <verstretch>0</verstretch>
-              </sizepolicy>
-             </property>
-             <property name="minimumSize">
-              <size>
-               <width>0</width>
-               <height>0</height>
-              </size>
-             </property>
-             <property name="maximumSize">
-              <size>
-               <width>50</width>
-               <height>50</height>
-              </size>
-             </property>
-             <property name="text">
-              <string/>
-             </property>
-             <property name="pixmap">
-              <pixmap>../Images/linear-regression.png</pixmap>
-             </property>
-             <property name="scaledContents">
-              <bool>true</bool>
-             </property>
-             <property name="alignment">
-              <set>Qt::AlignCenter</set>
-             </property>
-            </widget>
-           </item>
-           <item row="1" column="0" colspan="2">
-            <widget class="Line" name="line_3">
-             <property name="sizePolicy">
-              <sizepolicy hsizetype="Expanding" vsizetype="Minimum">
-               <horstretch>0</horstretch>
-               <verstretch>0</verstretch>
-              </sizepolicy>
-             </property>
-             <property name="minimumSize">
-              <size>
-               <width>0</width>
-               <height>1</height>
-              </size>
-             </property>
-             <property name="font">
-              <font>
-               <weight>50</weight>
-               <bold>false</bold>
-              </font>
-             </property>
-             <property name="styleSheet">
-              <string notr="true">background: rgba(0, 0, 0, 0.1);</string>
-             </property>
-             <property name="lineWidth">
-              <number>1</number>
-             </property>
-             <property name="midLineWidth">
-              <number>1</number>
-             </property>
-             <property name="orientation">
-              <enum>Qt::Horizontal</enum>
-             </property>
-            </widget>
-           </item>
-           <item row="0" column="1">
-            <widget class="QLabel" name="label_5">
-             <property name="font">
-              <font>
-               <pointsize>12</pointsize>
-               <weight>75</weight>
-               <bold>true</bold>
-              </font>
-             </property>
-             <property name="text">
-              <string>Linear Regression</string>
-             </property>
-             <property name="alignment">
-              <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
-             </property>
-            </widget>
-           </item>
-           <item row="2" column="0" colspan="2">
-            <widget class="QTextBrowser" name="textBrowser">
-             <property name="sizePolicy">
-              <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
-               <horstretch>2</horstretch>
-               <verstretch>0</verstretch>
-              </sizepolicy>
-             </property>
-             <property name="verticalScrollBarPolicy">
-              <enum>Qt::ScrollBarAsNeeded</enum>
-             </property>
-             <property name="horizontalScrollBarPolicy">
-              <enum>Qt::ScrollBarAlwaysOff</enum>
-             </property>
-             <property name="html">
-              <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
-&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
-p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:7.8pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Regression models describe the relationship between variables by fitting a line to the observed data. Linear regression models use a straight line, while logistic and nonlinear regression models use a curved line. Regression allows you to estimate how a dependent variable changes as the independent variable(s) change.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-             </property>
-            </widget>
-           </item>
-          </layout>
-         </widget>
-        </item>
-       </layout>
-      </widget>
+           <property name="text">
+            <string>xAI Tool</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="label_2">
+           <property name="font">
+            <font>
+             <pointsize>10</pointsize>
+            </font>
+           </property>
+           <property name="text">
+            <string>Version 0.0.1</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item>
+        <spacer name="horizontalSpacer_2">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>40</width>
+           <height>20</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item>
+        <widget class="QLabel" name="label_3">
+         <property name="font">
+          <font>
+           <pointsize>24</pointsize>
+          </font>
+         </property>
+         <property name="text">
+          <string>Select AI-Model</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
      </widget>
+    </item>
+    <item row="3" column="0">
+     <layout class="QHBoxLayout" name="horizontalLayout">
+      <property name="sizeConstraint">
+       <enum>QLayout::SetMaximumSize</enum>
+      </property>
+      <item>
+       <widget class="QPushButton" name="pushButton_exit">
+        <property name="enabled">
+         <bool>false</bool>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>100</width>
+          <height>30</height>
+         </size>
+        </property>
+        <property name="text">
+         <string>EXIT</string>
+        </property>
+        <property name="default">
+         <bool>false</bool>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <spacer name="horizontalSpacer">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>40</width>
+          <height>20</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+      <item>
+       <widget class="QPushButton" name="pushButton_back">
+        <property name="enabled">
+         <bool>true</bool>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>100</width>
+          <height>30</height>
+         </size>
+        </property>
+        <property name="text">
+         <string>BACK</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="pushButton_next">
+        <property name="enabled">
+         <bool>false</bool>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>100</width>
+          <height>30</height>
+         </size>
+        </property>
+        <property name="text">
+         <string>NEXT</string>
+        </property>
+        <property name="checkable">
+         <bool>false</bool>
+        </property>
+        <property name="autoDefault">
+         <bool>false</bool>
+        </property>
+        <property name="flat">
+         <bool>false</bool>
+        </property>
+       </widget>
+      </item>
+     </layout>
     </item>
    </layout>
   </widget>
@@ -480,15 +497,13 @@ p, li { white-space: pre-wrap; }
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1284</width>
-     <height>26</height>
+     <width>800</width>
+     <height>21</height>
     </rect>
    </property>
   </widget>
-  <widget class="QStatusBar" name="statusbar"/>
+  <widget class="QStatusBar" name="statusBar"/>
  </widget>
- <resources>
-  <include location="Images/resource.qrc"/>
- </resources>
+ <resources/>
  <connections/>
 </ui>

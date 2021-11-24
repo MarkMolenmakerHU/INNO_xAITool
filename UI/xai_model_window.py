@@ -17,5 +17,6 @@ class XaiModelWindow(QMainWindow):
         self.stackedWidget.setCurrentIndex(self.stackedWidget.currentIndex() - 1)
 
     def next(self):
-        aimodel = SourceFileLoader('aimodel', self.aiModelWindow.file_name).load_module()
-        aimodel.train_model(self.datasetWindow.file_name)
+        print("Using dataset:", self.datasetWindow.selected_dataset)
+        print("Using AI-Model:", self.aiModelWindow.selected_aimodel)
+        print("Using xAI-Models", "placeholder")
