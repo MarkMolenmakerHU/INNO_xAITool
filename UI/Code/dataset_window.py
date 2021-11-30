@@ -1,6 +1,5 @@
-from PyQt5.QtWidgets import QMainWindow, QFileDialog, QStackedWidget, QGraphicsDropShadowEffect
+from PyQt5.QtWidgets import QLabel, QMainWindow, QFileDialog, QPushButton, QStackedWidget, QGraphicsDropShadowEffect
 from PyQt5.uic import loadUi
-from UI.Code.Components.loader import Loader
 
 
 class DatasetWindow(QMainWindow):
@@ -11,7 +10,11 @@ class DatasetWindow(QMainWindow):
         self.file_name = None
         self.nextButton.clicked.connect(self.next)
         self.browseButton.clicked.connect(self.browse)
-        self.breastCancerWidget.mouseReleaseEvent = self.select
+
+        for child in self.scrollContents.children()[1:]:
+            selectButton = child.findChild(QPushButton, 'selectButton')
+            title = child.findChild(QLabel, 'titleLabel').text()
+            selectButton.clicked.connect(lambda event: self.select(event, child, title))
 
     def next(self):
         self.stackedWidget.setCurrentIndex(self.stackedWidget.currentIndex() + 1)
@@ -20,6 +23,7 @@ class DatasetWindow(QMainWindow):
         self.file_name = QFileDialog.getOpenFileName(self, 'Open file', './')[0]
         self.pathLine.setText(self.file_name)
 
-    def select(self, event):
-        shadow = QGraphicsDropShadowEffect(blurRadius=5, xOffset=3, yOffset=3)
-        self.breastCancerWidget.setGraphicsEffect(shadow)
+    def select(self, event, child, title):
+        shadow = QGraphicsDropShadowEffect(blurRadius=10)
+        child.setGraphicsEffect(shadow)
+        self.datasetLabel.setText(f"({title})")
