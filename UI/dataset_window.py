@@ -3,6 +3,12 @@ from PyQt5.QtWidgets import QMainWindow, QStackedWidget
 from PyQt5.uic import loadUi
 
 
+class PopupWindow(QMainWindow):
+    def __init__(self, parent=None):
+        super(PopupWindow, self).__init__(parent)
+        loadUi('UI/Ui/info-popup.ui', self)
+
+
 class DatasetWindow(QMainWindow):
     def __init__(self, stackedWidget: QStackedWidget):
         super(DatasetWindow, self).__init__()
@@ -46,6 +52,8 @@ class DatasetWindow(QMainWindow):
                     self.selected_dataset = source.property("dataset")
         elif source.property("href-text") is True:
             if event.type() == QEvent.MouseButtonPress:
+                popup_window = PopupWindow(self)
+                popup_window.show()
                 print(source.parent().property("dataset"))
         return super(DatasetWindow, self).eventFilter(source, event)
 
