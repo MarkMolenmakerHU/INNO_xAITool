@@ -13,6 +13,9 @@
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
+  <property name="styleSheet">
+   <string notr="true">background: rgba(255, 255, 255, 0.8);</string>
+  </property>
   <widget class="QWidget" name="centralwidget">
    <property name="minimumSize">
     <size>
@@ -43,6 +46,9 @@
         <pointsize>18</pointsize>
         <underline>true</underline>
        </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background: rgba(255, 255, 255, 0.1);</string>
       </property>
       <property name="text">
        <string>Select Dataset:</string>
@@ -141,6 +147,9 @@
           <pointsize>10</pointsize>
          </font>
         </property>
+        <property name="styleSheet">
+         <string notr="true">b</string>
+        </property>
         <property name="text">
          <string>Next Step</string>
         </property>
@@ -175,6 +184,7 @@
          <font>
           <pointsize>10</pointsize>
           <italic>true</italic>
+          <kerning>true</kerning>
          </font>
         </property>
         <property name="text">
@@ -202,11 +212,14 @@
         <height>325</height>
        </size>
       </property>
+      <property name="styleSheet">
+       <string notr="true">background: rgba(255, 255, 255, 0.2);</string>
+      </property>
       <property name="verticalScrollBarPolicy">
        <enum>Qt::ScrollBarAlwaysOff</enum>
       </property>
       <property name="horizontalScrollBarPolicy">
-       <enum>Qt::ScrollBarAlwaysOn</enum>
+       <enum>Qt::ScrollBarAsNeeded</enum>
       </property>
       <property name="widgetResizable">
        <bool>true</bool>
@@ -217,7 +230,7 @@
          <x>0</x>
          <y>0</y>
          <width>1232</width>
-         <height>320</height>
+         <height>323</height>
         </rect>
        </property>
        <layout class="QHBoxLayout" name="scrollLayout">
@@ -254,154 +267,31 @@
            <bool>false</bool>
           </property>
           <property name="styleSheet">
-           <string notr="true">background: rgb(255, 255, 255);
-border-radius: 15px;</string>
+           <string notr="true">QWidget#breastCancerWidget {
+	background: rgb(255, 255, 255);
+	border-radius: 15px;
+	border: 1px solid grey;
+}
+</string>
           </property>
-          <layout class="QGridLayout" name="gridLayout_2" rowstretch="1,0,0,0,0,0" columnstretch="0,0">
+          <layout class="QGridLayout" name="gridLayout_2" rowstretch="1,0,0,0,0" columnstretch="0,0">
+           <property name="leftMargin">
+            <number>15</number>
+           </property>
+           <property name="topMargin">
+            <number>15</number>
+           </property>
+           <property name="rightMargin">
+            <number>15</number>
+           </property>
+           <property name="bottomMargin">
+            <number>15</number>
+           </property>
            <property name="verticalSpacing">
             <number>5</number>
            </property>
-           <item row="3" column="0" colspan="2">
-            <widget class="QTextBrowser" name="textBrowser">
-             <property name="sizePolicy">
-              <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
-               <horstretch>2</horstretch>
-               <verstretch>0</verstretch>
-              </sizepolicy>
-             </property>
-             <property name="verticalScrollBarPolicy">
-              <enum>Qt::ScrollBarAsNeeded</enum>
-             </property>
-             <property name="horizontalScrollBarPolicy">
-              <enum>Qt::ScrollBarAlwaysOff</enum>
-             </property>
-             <property name="html">
-              <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
-&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
-p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:7.8pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'-apple-system','BlinkMacSystemFont','Segoe UI','Roboto','Helvetica Neue','Arial','Noto Sans','sans-serif','Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol','Noto Color Emoji'; font-size:8pt; color:#212529; background-color:#ffffff;&quot;&gt;The breast cancer dataset is a classic and very easy binary classification dataset.&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-             </property>
-            </widget>
-           </item>
-           <item row="5" column="0" colspan="2">
-            <layout class="QHBoxLayout" name="horizontalLayout_4">
-             <property name="spacing">
-              <number>10</number>
-             </property>
-             <property name="topMargin">
-              <number>5</number>
-             </property>
-             <property name="bottomMargin">
-              <number>5</number>
-             </property>
-             <item>
-              <widget class="QPushButton" name="selectButton">
-               <property name="minimumSize">
-                <size>
-                 <width>0</width>
-                 <height>30</height>
-                </size>
-               </property>
-               <property name="font">
-                <font>
-                 <pointsize>8</pointsize>
-                </font>
-               </property>
-               <property name="autoFillBackground">
-                <bool>false</bool>
-               </property>
-               <property name="styleSheet">
-                <string notr="true">background-color: rgb(75, 75, 255);
-color: rgb(255, 255, 255);
-border-radius: 5px;</string>
-               </property>
-               <property name="text">
-                <string>SELECT</string>
-               </property>
-              </widget>
-             </item>
-             <item>
-              <widget class="QPushButton" name="descriptionButton">
-               <property name="minimumSize">
-                <size>
-                 <width>0</width>
-                 <height>30</height>
-                </size>
-               </property>
-               <property name="styleSheet">
-                <string notr="true">background-color: rgb(75, 75, 255);
-color: rgb(255, 255, 255);
-border-radius: 5px;</string>
-               </property>
-               <property name="text">
-                <string>DESCRIPTION</string>
-               </property>
-              </widget>
-             </item>
-            </layout>
-           </item>
-           <item row="2" column="0" colspan="2">
-            <widget class="Line" name="line_3">
-             <property name="sizePolicy">
-              <sizepolicy hsizetype="Expanding" vsizetype="Minimum">
-               <horstretch>0</horstretch>
-               <verstretch>0</verstretch>
-              </sizepolicy>
-             </property>
-             <property name="minimumSize">
-              <size>
-               <width>0</width>
-               <height>1</height>
-              </size>
-             </property>
-             <property name="font">
-              <font>
-               <weight>50</weight>
-               <bold>false</bold>
-              </font>
-             </property>
-             <property name="styleSheet">
-              <string notr="true">background: rgba(0, 0, 0, 0.1);</string>
-             </property>
-             <property name="lineWidth">
-              <number>1</number>
-             </property>
-             <property name="midLineWidth">
-              <number>1</number>
-             </property>
-             <property name="orientation">
-              <enum>Qt::Horizontal</enum>
-             </property>
-            </widget>
-           </item>
-           <item row="4" column="0" colspan="2">
-            <widget class="Line" name="line_4">
-             <property name="sizePolicy">
-              <sizepolicy hsizetype="Expanding" vsizetype="Minimum">
-               <horstretch>0</horstretch>
-               <verstretch>0</verstretch>
-              </sizepolicy>
-             </property>
-             <property name="minimumSize">
-              <size>
-               <width>0</width>
-               <height>1</height>
-              </size>
-             </property>
-             <property name="styleSheet">
-              <string notr="true">background: rgba(0, 0, 0, 0.1);</string>
-             </property>
-             <property name="midLineWidth">
-              <number>1</number>
-             </property>
-             <property name="orientation">
-              <enum>Qt::Horizontal</enum>
-             </property>
-            </widget>
-           </item>
            <item row="1" column="0" colspan="2">
-            <layout class="QGridLayout" name="gridLayout_3" columnstretch="2,4,1,0">
+            <layout class="QGridLayout" name="gridLayout_3" columnstretch="2,4,1">
              <property name="topMargin">
               <number>0</number>
              </property>
@@ -451,6 +341,9 @@ border-radius: 5px;</string>
                  <bold>true</bold>
                 </font>
                </property>
+               <property name="styleSheet">
+                <string notr="true">color: #e6331c;</string>
+               </property>
                <property name="text">
                 <string>Breast Cancer</string>
                </property>
@@ -460,7 +353,7 @@ border-radius: 5px;</string>
               </widget>
              </item>
              <item row="0" column="2">
-              <widget class="QLabel" name="label_6">
+              <widget class="QLabel" name="infoLabel">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="Maximum" vsizetype="Maximum">
                  <horstretch>0</horstretch>
@@ -475,6 +368,9 @@ border-radius: 5px;</string>
                </property>
                <property name="toolTip">
                 <string extracomment="Info"/>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">;</string>
                </property>
                <property name="text">
                 <string/>
@@ -491,6 +387,136 @@ border-radius: 5px;</string>
               </widget>
              </item>
             </layout>
+           </item>
+           <item row="4" column="0" colspan="2">
+            <layout class="QHBoxLayout" name="horizontalLayout_4">
+             <property name="spacing">
+              <number>10</number>
+             </property>
+             <property name="topMargin">
+              <number>5</number>
+             </property>
+             <property name="bottomMargin">
+              <number>5</number>
+             </property>
+             <item>
+              <widget class="QPushButton" name="selectButton">
+               <property name="minimumSize">
+                <size>
+                 <width>0</width>
+                 <height>30</height>
+                </size>
+               </property>
+               <property name="font">
+                <font>
+                 <pointsize>8</pointsize>
+                </font>
+               </property>
+               <property name="autoFillBackground">
+                <bool>false</bool>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">background-color: #0092d2;
+color: white;
+border-radius: 5px;</string>
+               </property>
+               <property name="text">
+                <string>SELECT</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QPushButton" name="descriptionButton">
+               <property name="minimumSize">
+                <size>
+                 <width>0</width>
+                 <height>30</height>
+                </size>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">background-color: #0092d2;
+color: white;
+border-radius: 5px;</string>
+               </property>
+               <property name="text">
+                <string>DESCRIPTION</string>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </item>
+           <item row="3" column="0" colspan="2">
+            <widget class="QTextBrowser" name="textBrowser">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+               <horstretch>2</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">border: 1px solid grey;
+border-radius: 5px;</string>
+             </property>
+             <property name="frameShadow">
+              <enum>QFrame::Sunken</enum>
+             </property>
+             <property name="verticalScrollBarPolicy">
+              <enum>Qt::ScrollBarAsNeeded</enum>
+             </property>
+             <property name="horizontalScrollBarPolicy">
+              <enum>Qt::ScrollBarAlwaysOff</enum>
+             </property>
+             <property name="autoFormatting">
+              <set>QTextEdit::AutoBulletList</set>
+             </property>
+             <property name="markdown">
+              <string>The breast cancer dataset is a classic and very easy binary classification
+dataset.
+
+</string>
+             </property>
+             <property name="html">
+              <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:7.8pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:5px; margin-bottom:5px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;The breast cancer dataset is a classic and very easy binary classification dataset.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+             </property>
+            </widget>
+           </item>
+           <item row="2" column="0" colspan="2">
+            <widget class="Line" name="line_3">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Expanding" vsizetype="Minimum">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="minimumSize">
+              <size>
+               <width>0</width>
+               <height>10</height>
+              </size>
+             </property>
+             <property name="font">
+              <font>
+               <weight>50</weight>
+               <bold>false</bold>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">background: rgba(0, 0, 0, 0.01);</string>
+             </property>
+             <property name="lineWidth">
+              <number>1</number>
+             </property>
+             <property name="midLineWidth">
+              <number>1</number>
+             </property>
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+            </widget>
            </item>
           </layout>
          </widget>

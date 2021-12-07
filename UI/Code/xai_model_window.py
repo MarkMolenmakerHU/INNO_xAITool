@@ -9,7 +9,7 @@ from XAI_Models.Models.lime import LimeXaiModel
 
 
 class XaiModelWindow(QMainWindow):
-    def __init__(self, stackedWidget: QStackedWidget, datasetWindow, aiModelWindow):
+    def __init__(self, stackedWidget: QStackedWidget, datasetWindow: QMainWindow, aiModelWindow: QMainWindow):
         super(XaiModelWindow, self).__init__()
         loadUi('UI/Design/xai-model.ui', self)
         

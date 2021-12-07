@@ -1,5 +1,6 @@
 from PyQt5.QtWidgets import QLabel, QMainWindow, QFileDialog, QPushButton, QStackedWidget, QGraphicsDropShadowEffect
 from PyQt5.uic import loadUi
+from UI.Code.Components.modal import Modal
 
 
 class DatasetWindow(QMainWindow):
@@ -12,9 +13,19 @@ class DatasetWindow(QMainWindow):
         self.browseButton.clicked.connect(self.browse)
 
         for child in self.scrollContents.children()[1:]:
-            selectButton = child.findChild(QPushButton, 'selectButton')
             title = child.findChild(QLabel, 'titleLabel').text()
+            
+            selectButton = child.findChild(QPushButton, 'selectButton')
             selectButton.clicked.connect(lambda event: self.select(event, child, title))
+            
+            descriptionButton = child.findChild(QPushButton, 'descriptionButton')
+            descriptionButton.clicked.connect(lambda event: Modal(stackedWidget, "Dit is wat extra info over de dataset."))
+            
+            infoLabel = child.findChild(QLabel, 'infoLabel')
+            infoLabel.mousePressEvent = self.show_info
+
+    def show_info(self, event):
+        Modal(self.stackedWidget, "Dit zijn wat use cases met de dataset.")
 
     def next(self):
         self.stackedWidget.setCurrentIndex(self.stackedWidget.currentIndex() + 1)

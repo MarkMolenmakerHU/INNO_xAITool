@@ -3,10 +3,11 @@ from PyQt5.uic import loadUi
 
 
 class AiModelWindow(QMainWindow):
-    def __init__(self, stackedWidget: QStackedWidget):
+    def __init__(self, stackedWidget: QStackedWidget, datasetWindow: QMainWindow):
         super(AiModelWindow, self).__init__()
         loadUi('UI/Design/ai-model.ui', self)
         self.stackedWidget = stackedWidget
+        self.datasetWindow = datasetWindow
         self.file_name = None
         self.prevButton.clicked.connect(self.prev)
         self.nextButton.clicked.connect(self.next)
