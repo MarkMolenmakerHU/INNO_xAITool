@@ -40,7 +40,7 @@
      <number>10</number>
     </property>
     <item row="0" column="0">
-     <widget class="QLabel" name="datasetLabel">
+     <widget class="QLabel" name="stepLabel">
       <property name="font">
        <font>
         <pointsize>18</pointsize>
@@ -96,10 +96,30 @@
       </item>
       <item>
        <widget class="QPushButton" name="browseButton">
+        <property name="minimumSize">
+         <size>
+          <width>80</width>
+          <height>0</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>0</width>
+          <height>30</height>
+         </size>
+        </property>
         <property name="font">
          <font>
           <pointsize>10</pointsize>
          </font>
+        </property>
+        <property name="cursor">
+         <cursorShape>PointingHandCursor</cursorShape>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background-color: white;
+border-radius: 5px;
+border: 1px solid grey;</string>
         </property>
         <property name="text">
          <string>Browse</string>
@@ -129,6 +149,17 @@
           <pointsize>10</pointsize>
          </font>
         </property>
+        <property name="cursor">
+         <cursorShape>PointingHandCursor</cursorShape>
+        </property>
+        <property name="autoFillBackground">
+         <bool>false</bool>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background-color: white;
+border-radius: 5px;
+border: 1px solid grey;</string>
+        </property>
         <property name="text">
          <string>Previous Step</string>
         </property>
@@ -147,8 +178,13 @@
           <pointsize>10</pointsize>
          </font>
         </property>
+        <property name="cursor">
+         <cursorShape>PointingHandCursor</cursorShape>
+        </property>
         <property name="styleSheet">
-         <string notr="true">b</string>
+         <string notr="true">background-color: white;
+border-radius: 5px;
+border: 1px solid grey;</string>
         </property>
         <property name="text">
          <string>Next Step</string>
@@ -167,6 +203,12 @@
       </property>
       <item>
        <widget class="Line" name="line_2">
+        <property name="styleSheet">
+         <string notr="true">color: #e6331c;</string>
+        </property>
+        <property name="frameShadow">
+         <enum>QFrame::Plain</enum>
+        </property>
         <property name="orientation">
          <enum>Qt::Horizontal</enum>
         </property>
@@ -197,6 +239,12 @@
       </item>
       <item>
        <widget class="Line" name="line">
+        <property name="styleSheet">
+         <string notr="true">color: #e6331c;</string>
+        </property>
+        <property name="frameShadow">
+         <enum>QFrame::Plain</enum>
+        </property>
         <property name="orientation">
          <enum>Qt::Horizontal</enum>
         </property>
@@ -220,6 +268,9 @@
       </property>
       <property name="horizontalScrollBarPolicy">
        <enum>Qt::ScrollBarAsNeeded</enum>
+      </property>
+      <property name="sizeAdjustPolicy">
+       <enum>QAbstractScrollArea::AdjustIgnored</enum>
       </property>
       <property name="widgetResizable">
        <bool>true</bool>
@@ -274,7 +325,7 @@
 }
 </string>
           </property>
-          <layout class="QGridLayout" name="gridLayout_2" rowstretch="1,0,0,0,0" columnstretch="0,0">
+          <layout class="QGridLayout" name="gridLayout_2" rowstretch="0,0,0,0,0" columnstretch="0,0">
            <property name="leftMargin">
             <number>15</number>
            </property>
@@ -287,18 +338,21 @@
            <property name="bottomMargin">
             <number>15</number>
            </property>
-           <property name="verticalSpacing">
+           <property name="spacing">
             <number>5</number>
            </property>
            <item row="1" column="0" colspan="2">
-            <layout class="QGridLayout" name="gridLayout_3" columnstretch="2,4,1">
+            <layout class="QHBoxLayout" name="horizontalLayout_5" stretch="2,4,1">
+             <property name="spacing">
+              <number>5</number>
+             </property>
              <property name="topMargin">
               <number>0</number>
              </property>
              <property name="rightMargin">
               <number>10</number>
              </property>
-             <item row="0" column="0">
+             <item>
               <widget class="QLabel" name="label_4">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
@@ -332,8 +386,8 @@
                </property>
               </widget>
              </item>
-             <item row="0" column="1">
-              <widget class="QLabel" name="titleLabel">
+             <item>
+              <widget class="QLabel" name="titleLabel0">
                <property name="font">
                 <font>
                  <pointsize>12</pointsize>
@@ -352,8 +406,8 @@
                </property>
               </widget>
              </item>
-             <item row="0" column="2">
-              <widget class="QLabel" name="infoLabel">
+             <item>
+              <widget class="QLabel" name="infoLabel0">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="Maximum" vsizetype="Maximum">
                  <horstretch>0</horstretch>
@@ -366,11 +420,14 @@
                  <height>25</height>
                 </size>
                </property>
+               <property name="cursor">
+                <cursorShape>WhatsThisCursor</cursorShape>
+               </property>
                <property name="toolTip">
                 <string extracomment="Info"/>
                </property>
                <property name="styleSheet">
-                <string notr="true">;</string>
+                <string notr="true"/>
                </property>
                <property name="text">
                 <string/>
@@ -400,7 +457,7 @@
               <number>5</number>
              </property>
              <item>
-              <widget class="QPushButton" name="selectButton">
+              <widget class="QPushButton" name="selectButton0">
                <property name="minimumSize">
                 <size>
                  <width>0</width>
@@ -411,6 +468,9 @@
                 <font>
                  <pointsize>8</pointsize>
                 </font>
+               </property>
+               <property name="cursor">
+                <cursorShape>PointingHandCursor</cursorShape>
                </property>
                <property name="autoFillBackground">
                 <bool>false</bool>
@@ -426,12 +486,15 @@ border-radius: 5px;</string>
               </widget>
              </item>
              <item>
-              <widget class="QPushButton" name="descriptionButton">
+              <widget class="QPushButton" name="descriptionButton0">
                <property name="minimumSize">
                 <size>
                  <width>0</width>
                  <height>30</height>
                 </size>
+               </property>
+               <property name="cursor">
+                <cursorShape>PointingHandCursor</cursorShape>
                </property>
                <property name="styleSheet">
                 <string notr="true">background-color: #0092d2;
