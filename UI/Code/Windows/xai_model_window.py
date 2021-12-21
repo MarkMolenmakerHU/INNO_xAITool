@@ -1,5 +1,6 @@
 from PyQt5.QtWidgets import QStackedWidget
 from UI.Code.Components import Loader, Worker, Modal
+from UI.Code.Results import HTMLResult
 from UI.Code.Windows import BaseWindow, DatasetWindow, AiModelWindow
 from AI_Models.Models.interface_ai_model import InterfaceAiModel
 from XAI_Models.Models.lime import LimeXaiModel
@@ -19,9 +20,28 @@ class XaiModelWindow(BaseWindow):
         self.worker = Worker(self.train)
 
     def next(self):
-        self.worker.started.connect(self.loader.start)
-        self.worker.start()
-        self.worker.finished.connect(lambda data: self.on_done(*data))
+
+        html = """
+                <!DOCTYPE html>
+                <html lang="en">
+                <head>
+                    <meta charset="UTF-8">
+                    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                    <title>Home page</title>
+                </head>
+                <body>
+                    <p>
+                        This is a simple HTML page.
+                    </p>
+                </body>
+                </html>
+                """
+
+        HTMLResult(self, html)
+
+        # self.worker.started.connect(self.loader.start)
+        # self.worker.start()
+        # self.worker.finished.connect(lambda data: self.on_done(*data))
 
     def train(self):
         ai_class = load_class('ai_module', self.ai_model_Window.file_name, InterfaceAiModel)
