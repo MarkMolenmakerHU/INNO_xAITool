@@ -4,3 +4,4 @@ sklearn
 PyQt5
 lime
 python-dotenv
+PyQtWebEngine

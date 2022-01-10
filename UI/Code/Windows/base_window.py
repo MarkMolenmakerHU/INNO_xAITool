@@ -4,6 +4,8 @@ from Helpers.ui_helper import bind_selectable
 
 class BaseWindow(QMainWindow):
     defaults = []
+    selected_child = None
+    selected_option = None
 
     def __init__(self, stackedWidget: QStackedWidget, window_name: str):
         super(BaseWindow, self).__init__()
@@ -29,8 +31,12 @@ class BaseWindow(QMainWindow):
         self.nextButton.setDisabled(False)
 
     def select(self, event, index, child, title):
+        if self.selected_child is not None: self.selected_child.setGraphicsEffect(None)
         shadow = QGraphicsDropShadowEffect(blurRadius=10)
         child.setGraphicsEffect(shadow)
+        
+        self.selected_child = child
+        self.selected_option = self.defaults[index]
+
         self.stepLabel.setText(f"({title})")
-        self.file_name = self.defaults[index]
         self.nextButton.setDisabled(False)

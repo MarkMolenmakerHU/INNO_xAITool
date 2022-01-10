@@ -1,11 +1,13 @@
 from PyQt5.QtWidgets import QStackedWidget
 from UI.Code.Windows.base_window import BaseWindow
+from AI_Models.Models.svm_ai_model import SvmAiModel
 
 
 class AiModelWindow(BaseWindow):
     defaults = [
-        "D:/Documents/School/Hogeschool/Leerjaar 3/Blok 2/Innovation (INNO)/INNO_xAITool/AI_Models/Models/iris_ai_model.py",
-        "D:/Documents/School/Hogeschool/Leerjaar 3/Blok 2/Innovation (INNO)/INNO_xAITool/AI_Models/Models/iris_ai_model.py",
+        SvmAiModel(),
+        SvmAiModel(),
+        SvmAiModel()
     ]
 
     def __init__(self, stackedWidget: QStackedWidget):
