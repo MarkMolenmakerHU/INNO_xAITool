@@ -13,8 +13,8 @@ class Modal(QDialog):
         super().__init__(parent, Qt.WindowCloseButtonHint)
         loadUi('UI/Design/modal.ui', self)
         self.okButton.clicked.connect(self.close)
-        display_conent = self.display_html if type(content) == TextIOWrapper else self.display_text
-        display_conent(content)
+        display_content = self.display_html if type(content) == TextIOWrapper else self.display_text
+        display_content(content)
         self.show()
 
     def display_text(self, text: str):

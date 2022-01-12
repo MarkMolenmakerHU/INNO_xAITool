@@ -648,7 +648,7 @@ QPushButton::hover {
 }</string>
         </property>
         <property name="text">
-         <string>Next Step</string>
+         <string>Calculate</string>
         </property>
        </widget>
       </item>

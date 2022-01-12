@@ -1,9 +1,6 @@
-from io import TextIOWrapper
 import sys
 from PyQt5.QtWidgets import QApplication, QStackedWidget
 from UI.Code.Windows import DatasetWindow, AiModelWindow, XaiModelWindow
-from UI.Code.Components import Modal
-
 
 if __name__ == '__main__':
     app = QApplication(sys.argv)

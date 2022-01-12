@@ -6,19 +6,19 @@ class Worker(QObject):
     started = pyqtSignal(bool)
     finished = pyqtSignal(object)
 
-    def __init__(self, job):
+    def __init__(self, job, parent):
         super().__init__(None)
         self.job = job
-        self.thread = QThread()
+        self.thread = QThread(parent)
         self.moveToThread(self.thread)
-        self.thread.started.connect(self.do)
+        self.thread.started.connect(self.excute_job)
         
     def start(self):
         self.thread.start()
-
-    def do(self):
         print("Started Thread")
         self.started.emit(True)
+
+    def excute_job(self):
         data = self.job()
         self.finished.emit(data)
-        print("Finished Thread")
+        print("Finished Thread\n")
