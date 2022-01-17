@@ -6,7 +6,7 @@ from typing import Optional
 
 
 class ImageResult(QDialog):
-    def __init__(self, parent: Optional[QWidget], title: str) -> None:
+    def __init__(self, parent: Optional[QWidget], title: str, path: str) -> None:
         super().__init__(parent, Qt.WindowCloseButtonHint)
         loadUi('UI/Design/Results/dialog.ui', self)
         self.okButton.clicked.connect(self.close)
@@ -14,7 +14,7 @@ class ImageResult(QDialog):
         self.setWindowTitle(title)
 
         self.imageLabel = QLabel()
-        pixmap = QPixmap(r'G:\temp\bedrock.png')
+        pixmap = QPixmap(path)
         self.imageLabel.setPixmap(pixmap)
         self.resize(pixmap.width(), pixmap.height())
 

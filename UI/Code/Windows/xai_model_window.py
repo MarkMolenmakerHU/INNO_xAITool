@@ -39,8 +39,8 @@ class XaiModelWindow(BaseWindow):
                 </html>
                 """
 
-        ImageResult(self, 'Preview Image')
-        HTMLResult(self, 'Lime Output')
+        ImageResult(self, 'Preview Image', r'G:\temp\bedrock.png')
+        HTMLResult(self, 'Lime Output', r'G:\temp\lime.html')
 
         # self.worker.started.connect(self.loader.start)
         # self.worker.start()
