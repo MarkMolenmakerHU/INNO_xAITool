@@ -39,6 +39,7 @@ class XaiModelWindow(BaseWindow):
                 </html>
                 """
 
+        ImageResult(self, 'Preview Image')
         HTMLResult(self, 'Lime Output')
 
         # self.worker.started.connect(self.loader.start)
