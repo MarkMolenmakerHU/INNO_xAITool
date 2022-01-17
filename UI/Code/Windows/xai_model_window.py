@@ -1,6 +1,7 @@
 from PyQt5.QtWidgets import QStackedWidget
 from UI.Code.Components import Loader, Worker, Modal
 from UI.Code.Results import HTMLResult
+from UI.Code.Results.image import ImageResult
 from UI.Code.Windows import BaseWindow, DatasetWindow, AiModelWindow
 from AI_Models.Models.interface_ai_model import InterfaceAiModel
 from XAI_Models.Models.lime import LimeXaiModel
@@ -22,7 +23,7 @@ class XaiModelWindow(BaseWindow):
     def next(self):
 
         html = """
-                <!DOCTYPE html>
+                <!DOCTYPE html>++
                 <html lang="en">
                 <head>
                     <meta charset="UTF-8">
@@ -33,11 +34,12 @@ class XaiModelWindow(BaseWindow):
                     <p>
                         This is a simple HTML page.
                     </p>
+                    <script>alert('Hello')</script>
                 </body>
                 </html>
                 """
 
-        HTMLResult(self, html)
+        HTMLResult(self, 'Lime Output')
 
         # self.worker.started.connect(self.loader.start)
         # self.worker.start()
