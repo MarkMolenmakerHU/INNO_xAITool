@@ -2,6 +2,7 @@ import sys
 from PyQt5.QtWidgets import QApplication, QStackedWidget
 from UI.Code.Windows import DatasetWindow, AiModelWindow, XaiModelWindow
 
+
 if __name__ == '__main__':
     app = QApplication(sys.argv)
 

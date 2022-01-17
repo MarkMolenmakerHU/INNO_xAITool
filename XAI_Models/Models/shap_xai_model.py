@@ -1,6 +1,7 @@
 from XAI_Models.Models.interface_xai_model import InterfaceXaiModel
-from shap import Explainer, force_plot as shap_force_plot
 from numpy.random import randint
+from shap import Explainer, force_plot as shap_force_plot
+
 
 class ShapXaiModel(InterfaceXaiModel):
     def train_model(self, model, data, names):
