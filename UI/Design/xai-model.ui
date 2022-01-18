@@ -652,6 +652,38 @@ QPushButton::hover {
         </property>
        </widget>
       </item>
+      <item>
+       <widget class="QPushButton" name="displayButton">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>10</pointsize>
+         </font>
+        </property>
+        <property name="cursor">
+         <cursorShape>PointingHandCursor</cursorShape>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QPushButton {
+	background-color: white;
+	border-radius: 5px;
+	border: 1px solid grey;
+}
+
+QPushButton::hover { 
+    background-color : rgba(0, 146, 210, 150); 
+}</string>
+        </property>
+        <property name="text">
+         <string>Display</string>
+        </property>
+       </widget>
+      </item>
      </layout>
     </item>
     <item row="0" column="0">

@@ -37089,25 +37089,25 @@
 /***/ })
 /******/ ]);
 //# sourceMappingURL=bundle.js.map </script></head><body>
-        <div class="lime top_div" id="top_div28JRFFKTWUNTEOC"></div>
+        <div class="lime top_div" id="top_divC3OH2JG1ZUNH0JQ"></div>
         
         <script>
-        var top_div = d3.select('#top_div28JRFFKTWUNTEOC').classed('lime top_div', true);
+        var top_div = d3.select('#top_divC3OH2JG1ZUNH0JQ').classed('lime top_div', true);
         
             var pp_div = top_div.append('div')
                                 .classed('lime predict_proba', true);
             var pp_svg = pp_div.append('svg').style('width', '100%');
-            var pp = new lime.PredictProba(pp_svg, ["Iris-setosa", "Iris-versicolor", "Iris-virginica"], [0.011350420910605096, 0.011979329143559536, 0.9766702499458353]);
+            var pp = new lime.PredictProba(pp_svg, ["malignant", "benign"], [0.9998232126235962, 0.00017675913113635033]);
             
         
         var exp_div;
-            var exp = new lime.Explanation(["Iris-setosa", "Iris-versicolor", "Iris-virginica"]);
+            var exp = new lime.Explanation(["malignant", "benign"]);
         
                 exp_div = top_div.append('div').classed('lime explanation', true);
-                exp.show([["petal-length > 5.12", 0.5686337415661936], ["petal-width > 1.80", 0.262631427224134]], 2, exp_div);
+                exp.show([["worst concave points > 0.17", 0.3099057008920373], ["worst area > 1122.50", 0.23156844422240022]], 0, exp_div);
                 
         var raw_div = top_div.append('div');
-            exp.show_raw_tabular([["petal-length", "5.70", 0.5686337415661936], ["petal-width", "2.30", 0.262631427224134]], 2, raw_div);
+            exp.show_raw_tabular([["worst concave points", "0.18", 0.3099057008920373], ["worst area", "1362.00", 0.23156844422240022]], 0, raw_div);
         
         </script>
         </body></html>
