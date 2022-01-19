@@ -28,17 +28,17 @@ class XaiModelWindow(BaseWindow):
     def train(self):
         file_name = get_file_name(*self.selected_options)
         model, data, names, scores = train_ai_model(self.ai_model_Window.selected_option, self.dataset_window.selected_option)
-        results = train_xai_model(self.selected_option, model, data, names, file_name)
-        return scores, results
+        result = train_xai_model(self.selected_option, model, data, names, file_name)
+        return scores, result
 
     def display(self):
         file_paths = QFileDialog.getOpenFileNames(self, 'Open file', './Results')[0]
         HtmlModal(self, file_paths)
 
-    def on_done(self, scores, results):
+    def on_done(self, scores, result):
         self.loader.stop()
         dataset_name, ai_model_name, xai_model_name = get_combination_names(*self.selected_options)
-        text = f"Done! (Accuracy: {scores['accuracy']:0.2}, F1: {scores['f1']:0.2}, Results: {results})\n"
+        text = f"Done! (Accuracy: {scores['accuracy']:0.2}, F1: {scores['f1']:0.2}, Result: {result})\n"
         text += f"With dataset: {dataset_name}\n"
         text += f"Ai-model: {ai_model_name}\n"
         text += f"Xai-model: {xai_model_name}\n"

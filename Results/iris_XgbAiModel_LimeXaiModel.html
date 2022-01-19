@@ -37089,25 +37089,25 @@
 /***/ })
 /******/ ]);
 //# sourceMappingURL=bundle.js.map </script></head><body>
-        <div class="lime top_div" id="top_divY1DDV56327IHDCM"></div>
+        <div class="lime top_div" id="top_divCV5YPVS2LPEJDEL"></div>
         
         <script>
-        var top_div = d3.select('#top_divY1DDV56327IHDCM').classed('lime top_div', true);
+        var top_div = d3.select('#top_divCV5YPVS2LPEJDEL').classed('lime top_div', true);
         
             var pp_div = top_div.append('div')
                                 .classed('lime predict_proba', true);
             var pp_svg = pp_div.append('svg').style('width', '100%');
-            var pp = new lime.PredictProba(pp_svg, ["setosa", "versicolor", "virginica"], [0.006492025684565306, 0.9897440075874329, 0.0037639993242919445]);
+            var pp = new lime.PredictProba(pp_svg, ["setosa", "versicolor", "virginica"], [0.9893325567245483, 0.009972839616239071, 0.0006945760687813163]);
             
         
         var exp_div;
             var exp = new lime.Explanation(["setosa", "versicolor", "virginica"]);
         
                 exp_div = top_div.append('div').classed('lime explanation', true);
-                exp.show([["4.35 < petal length (cm) <= 5.12", 0.41682017620229317], ["1.30 < petal width (cm) <= 1.80", 0.01816409895096206]], 1, exp_div);
+                exp.show([["petal length (cm) <= 1.60", 0.8576087049692903], ["petal width (cm) <= 0.30", 0.046638218364329]], 0, exp_div);
                 
         var raw_div = top_div.append('div');
-            exp.show_raw_tabular([["petal length (cm)", "4.50", 0.41682017620229317], ["petal width (cm)", "1.50", 0.01816409895096206]], 1, raw_div);
+            exp.show_raw_tabular([["petal length (cm)", "1.40", 0.8576087049692903], ["petal width (cm)", "0.20", 0.046638218364329]], 0, raw_div);
         
         </script>
         </body></html>

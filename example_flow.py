@@ -9,6 +9,6 @@ xai_class = LimeXaiModel()
 
 file_name = get_file_name(dataset, ai_class, xai_class)
 model, data, names, scores = train_ai_model(ai_class, dataset)
-results = train_xai_model(xai_class, model, data, names, file_name)
+result = train_xai_model(xai_class, model, data, names, file_name)
 
-print(results)
+print(result)
