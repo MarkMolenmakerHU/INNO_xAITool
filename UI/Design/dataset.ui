@@ -532,18 +532,18 @@ border-radius: 5px;</string>
              <property name="autoFormatting">
               <set>QTextEdit::AutoBulletList</set>
              </property>
-             <property name="markdown">
-              <string>The breast cancer dataset is a classic and very easy binary classification
-dataset.
-
-</string>
-             </property>
              <property name="html">
               <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:7.8pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot; margin-top:5px; margin-bottom:5px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;The breast cancer dataset is a classic and very easy binary classification dataset.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:8.25pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:5px; margin-bottom:5px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:7.8pt;&quot;&gt;The breast cancer dataset is a classic and very easy binary classification dataset.&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+             </property>
+             <property name="markdown" stdset="0">
+              <string>The breast cancer dataset is a classic and very easy binary classification
+dataset.
+
+</string>
              </property>
             </widget>
            </item>
@@ -588,6 +588,13 @@ p, li { white-space: pre-wrap; }
       </widget>
      </widget>
     </item>
+    <item row="2" column="0">
+     <widget class="QPushButton" name="openImageSelectionBtn">
+      <property name="text">
+       <string>open image selection</string>
+      </property>
+     </widget>
+    </item>
    </layout>
   </widget>
   <widget class="QMenuBar" name="menubar">
@@ -596,7 +603,7 @@ p, li { white-space: pre-wrap; }
      <x>0</x>
      <y>0</y>
      <width>1284</width>
-     <height>26</height>
+     <height>21</height>
     </rect>
    </property>
   </widget>
