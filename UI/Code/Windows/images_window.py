@@ -3,7 +3,7 @@ import functools
 from PyQt5.QtGui import QPixmap
 from PyQt5.uic import loadUi
 from PyQt5.QtWidgets import QDialog, QWidget, QLabel, QGridLayout, QScrollArea, QVBoxLayout, QHBoxLayout, \
-    QGraphicsOpacityEffect, QPushButton
+    QGraphicsOpacityEffect, QPushButton, QFileDialog
 from PyQt5.QtCore import Qt, pyqtSignal
 from typing import Optional
 import os
@@ -21,33 +21,55 @@ class Image(QLabel):
 
 class ImageSelectionWindow(QDialog):
 
-    def image_click_handler(self, path, img):
+    def image_click_handler(self, filename, img):
         img.isIncluded = not img.isIncluded
 
         # creating a opacity effect
         opacity_effect = QGraphicsOpacityEffect()
         if img.isIncluded:
             opacity_effect.setOpacity(1)
-            self.excluded_images.remove(path)
+            self.excluded_images.remove(filename)
         else:
             opacity_effect.setOpacity(0.2)
-            self.excluded_images.append(path)
+            self.excluded_images.append(filename)
         img.setGraphicsEffect(opacity_effect)
 
     def select_button_handler(self, path):
         print("Selected:" + path)
         print(self.excluded_images)
 
+    def select_folder(self):
+        folder_path = QFileDialog.getExistingDirectory(self, 'Select folder', './')
+        self.pathLine.setText(folder_path)
+        self.load_folders(folder_path)
+
+    def deleteItemsOfLayout(self, layout):
+        if layout is not None:
+            while layout.count():
+                item = layout.takeAt(0)
+                widget = item.widget()
+                if widget is not None:
+                    widget.setParent(None)
+                else:
+                    self.deleteItemsOfLayout(item.layout())
+
     def __init__(self, parent: Optional[QWidget]) -> None:
         super().__init__(parent, Qt.WindowCloseButtonHint)
         loadUi('UI/Design/images.ui', self)
+        self.selectFolderBtn.clicked.connect(self.select_folder)
         self.okButton.clicked.connect(self.close)
 
         self.excluded_images = []
         self.setWindowTitle('Images Selection')
 
-        root = r'G:\temp\images'
+        self.load_folders('sample_data/images')
+
+        self.show()
+
+    def load_folders(self, root):
+        self.deleteItemsOfLayout(self.root_layout.layout())
         directories = [f.path for f in os.scandir(root) if f.is_dir()]
+        self.excluded_images = []
 
         for path in directories:
             directory = os.fsencode(path)
@@ -65,7 +87,7 @@ class ImageSelectionWindow(QDialog):
                     file_path = path + '\\' + filename
 
                     image_label.isIncluded = True
-                    image_label.clicked.connect(functools.partial(self.image_click_handler, file_path, image_label))
+                    image_label.clicked.connect(functools.partial(self.image_click_handler, filename, image_label))
 
                     pixmap = QPixmap(file_path)
                     pixmap = pixmap.scaled(50, 50)
@@ -95,5 +117,3 @@ class ImageSelectionWindow(QDialog):
             scroll_layout.addWidget(btn)
 
             self.root_layout.layout().addLayout(scroll_layout)
-
-        self.show()
