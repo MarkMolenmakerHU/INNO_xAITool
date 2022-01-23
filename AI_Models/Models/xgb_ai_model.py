@@ -6,9 +6,9 @@ from xgboost import XGBClassifier
 
 class XgbAiModel(InterfaceAiModel):
     def train_model(self, dataset):
-        # Split-out validation dataset
-        X = dataset.data
-        y = dataset.target
+        # Split-out validation datasete
+        X = dataset['data']
+        y = dataset['target']
         X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.20, random_state=1)
 
         # Make predictions on validation dataset

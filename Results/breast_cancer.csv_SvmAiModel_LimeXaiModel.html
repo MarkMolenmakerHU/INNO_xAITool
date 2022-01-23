@@ -37089,25 +37089,25 @@
 /***/ })
 /******/ ]);
 //# sourceMappingURL=bundle.js.map </script></head><body>
-        <div class="lime top_div" id="top_divMOITDVCZGXUYL6G"></div>
+        <div class="lime top_div" id="top_div3BEFYOO2NLSKPA4"></div>
         
         <script>
-        var top_div = d3.select('#top_divMOITDVCZGXUYL6G').classed('lime top_div', true);
+        var top_div = d3.select('#top_div3BEFYOO2NLSKPA4').classed('lime top_div', true);
         
             var pp_div = top_div.append('div')
                                 .classed('lime predict_proba', true);
             var pp_svg = pp_div.append('svg').style('width', '100%');
-            var pp = new lime.PredictProba(pp_svg, ["setosa", "versicolor", "virginica"], [0.9948657155036926, 0.004435866605490446, 0.0006984606734476984]);
+            var pp = new lime.PredictProba(pp_svg, ["malignant", "benign"], [0.421105671326177, 0.5788943286738231]);
             
         
         var exp_div;
-            var exp = new lime.Explanation(["setosa", "versicolor", "virginica"]);
+            var exp = new lime.Explanation(["malignant", "benign"]);
         
                 exp_div = top_div.append('div').classed('lime explanation', true);
-                exp.show([["petal length (cm) <= 1.60", 0.8650986103624103], ["0.30 < petal width (cm) <= 1.30", 0.03936774743343387]], 0, exp_div);
+                exp.show([["0.02 < compactness error <= 0.03", 0.0002759026213359003], ["0.13 < worst smoothness <= 0.14", 0.0002456059614795885]], 1, exp_div);
                 
         var raw_div = top_div.append('div');
-            exp.show_raw_tabular([["petal length (cm)", "1.50", 0.8650986103624103], ["petal width (cm)", "0.40", 0.03936774743343387]], 0, raw_div);
+            exp.show_raw_tabular([["compactness error", "0.02", 0.0002759026213359003], ["worst smoothness", "0.14", 0.0002456059614795885]], 1, raw_div);
         
         </script>
         </body></html>

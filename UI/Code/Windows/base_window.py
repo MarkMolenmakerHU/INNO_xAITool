@@ -11,11 +11,10 @@ class BaseWindow(QMainWindow):
         super(BaseWindow, self).__init__()
         loadUi(f'UI/Design/{window_name}.ui', self)
         self.stackedWidget = stackedWidget
-        self.file_name = None
         self.nextButton.setDisabled(True)
         self.prevButton.clicked.connect(self.prev)
         self.nextButton.clicked.connect(self.next)
-        if 'browseButton' in locals(): 
+        if 'browseButton' in self.__dict__:
             self.browseButton.clicked.connect(self.browse)
         bind_selectable(stackedWidget, self.scrollContents, self.select)
 
@@ -26,9 +25,15 @@ class BaseWindow(QMainWindow):
         self.stackedWidget.setCurrentIndex(self.stackedWidget.currentIndex() + 1)
 
     def browse(self):
-        self.file_name = QFileDialog.getOpenFileName(self, 'Open file', './')[0]
-        self.pathLine.setText(self.file_name)
+        file_path = QFileDialog.getOpenFileName(self, 'Open file', './')[0]
+        self.pathLine.setText(file_path)
         self.nextButton.setDisabled(False)
+        if self.selected_child is not None: self.selected_child.setGraphicsEffect(None)
+        self.selected_child = None
+        self.browse_action(file_path)
+
+    def browse_action(self, file_path):
+        pass
 
     def select(self, event, index, child, title):
         if self.selected_child is not None: self.selected_child.setGraphicsEffect(None)

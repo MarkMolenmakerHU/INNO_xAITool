@@ -3,7 +3,7 @@ from numpy.random import randint
 
 def train_ai_model(ai_class, dataset):
     print("Training AI-Model...")
-    names = {'feature_names': dataset.feature_names, 'target_names': dataset.target_names}
+    names = {'feature_names': dataset['feature_names'], 'target_names': dataset['target_names']}
     model, data, scores = ai_class.train_model(dataset)
     print("Done training AI-Model!")
     return model, data, names, scores
