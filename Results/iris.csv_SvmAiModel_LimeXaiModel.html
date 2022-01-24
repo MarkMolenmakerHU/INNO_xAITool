@@ -37089,25 +37089,25 @@
 /***/ })
 /******/ ]);
 //# sourceMappingURL=bundle.js.map </script></head><body>
-        <div class="lime top_div" id="top_div8AU945C7AWXTYYC"></div>
+        <div class="lime top_div" id="top_div5GLQNT0NT0IRQ9R"></div>
         
         <script>
-        var top_div = d3.select('#top_div8AU945C7AWXTYYC').classed('lime top_div', true);
+        var top_div = d3.select('#top_div5GLQNT0NT0IRQ9R').classed('lime top_div', true);
         
             var pp_div = top_div.append('div')
                                 .classed('lime predict_proba', true);
             var pp_svg = pp_div.append('svg').style('width', '100%');
-            var pp = new lime.PredictProba(pp_svg, ["setosa", "versicolor", "virginica"], [0.9557474344374913, 0.02210687374682241, 0.02214569181568641]);
+            var pp = new lime.PredictProba(pp_svg, ["setosa", "versicolor", "virginica"], [0.019106454649493884, 0.9277696028890274, 0.05312394246147851]);
             
         
         var exp_div;
             var exp = new lime.Explanation(["setosa", "versicolor", "virginica"]);
         
                 exp_div = top_div.append('div').classed('lime explanation', true);
-                exp.show([["2 <= 1.60", 0.5273809233248704], ["4 <= 0.00", 0.1335954287229348]], 0, exp_div);
+                exp.show([["0.00 < 4 <= 1.00", 0.21397397180556743], ["4.35 < 2 <= 5.12", 0.19966100601150163]], 1, exp_div);
                 
         var raw_div = top_div.append('div');
-            exp.show_raw_tabular([["2", "1.30", 0.5273809233248704], ["4", "0.00", 0.1335954287229348]], 0, raw_div);
+            exp.show_raw_tabular([["4", "1.00", 0.21397397180556743], ["2", "5.00", 0.19966100601150163]], 1, raw_div);
         
         </script>
         </body></html>
