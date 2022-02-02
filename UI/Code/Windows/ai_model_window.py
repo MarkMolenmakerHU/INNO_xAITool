@@ -1,13 +1,13 @@
 from PyQt5.QtWidgets import QStackedWidget
 from UI.Code.Windows.base_window import BaseWindow
-from AI_Models.Models import SvmAiModel, XgbAiModel
+from AI_Models.Models import DtAiModel, LrAiModel, SvmAiModel, XgbAiModel
 from Helpers import load_ai_model
 
 
 class AiModelWindow(BaseWindow):
     defaults = [
-        SvmAiModel(),
-        SvmAiModel(),
+        DtAiModel(),
+        LrAiModel(),
         SvmAiModel(),
         XgbAiModel()
     ]
