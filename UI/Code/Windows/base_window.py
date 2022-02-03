@@ -10,11 +10,12 @@ class BaseWindow(QMainWindow):
     selected_option = None
     filter = ''
 
-    def __init__(self, stackedWidget: QStackedWidget, window_name: str, filter: str = ''):
+    def __init__(self, stackedWidget: QStackedWidget, window_name: str, filter: str = '', folder_path: str = ''):
         super(BaseWindow, self).__init__()
         loadUi(f'UI/Design/{window_name}.ui', self)
         self.stackedWidget = stackedWidget
         self.filter = filter
+        self.folder_path = folder_path
         self.nextButton.setDisabled(True)
         self.prevButton.clicked.connect(self.prev)
         self.nextButton.clicked.connect(self.next)
@@ -29,7 +30,7 @@ class BaseWindow(QMainWindow):
         self.stackedWidget.setCurrentIndex(self.stackedWidget.currentIndex() + 1)
 
     def browse(self):
-        file_path = QFileDialog.getOpenFileName(self, 'Open file', './', self.filter)[0]
+        file_path = QFileDialog.getOpenFileName(self, 'Open file', f'./{self.folder_path}', self.filter)[0]
         if file_path:
             file_name = path_split(file_path)[1].split('.')[0]
             self.pathLine.setText(file_path)

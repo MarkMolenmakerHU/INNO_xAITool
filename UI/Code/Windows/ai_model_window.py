@@ -13,7 +13,7 @@ class AiModelWindow(BaseWindow):
     ]
 
     def __init__(self, stackedWidget: QStackedWidget):
-        super().__init__(stackedWidget, 'ai-model', 'Python (*.py)')
+        super().__init__(stackedWidget, 'ai-model', 'Python (*.py)', 'AI_Models/Models')
 
     def browse_action(self, file_path):
         self.selected_option = load_ai_model(file_path)

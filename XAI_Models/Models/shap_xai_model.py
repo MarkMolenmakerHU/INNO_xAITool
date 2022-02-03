@@ -12,8 +12,6 @@ class ShapXaiModel(InterfaceXaiModel):
         shap_values = explainer.shap_values(data['X_test'])
         predicted = argmax(explainer.expected_value)
         plot = shap_force_plot(predicted, shap_values[0], data_sample, names['feature_names'])
-        print(explainer.expected_value)
-
         result = f"True value {target_sample} predicted {explainer.expected_value} because..."
         if self.save_result: shap_save_html(f'Results/{file_name}', plot)
         return result
