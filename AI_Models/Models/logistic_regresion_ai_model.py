@@ -5,7 +5,7 @@ from sklearn.linear_model import LogisticRegression
 
 
 class LrAiModel(InterfaceAiModel):
-    def train_model(self, dataset):
+    def train_model(self, dataset: dict):
         # Split-out validation dataset
         X = dataset['data']
         y = dataset['targets']

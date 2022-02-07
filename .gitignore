@@ -148,3 +148,6 @@ Backup of *.doc*
 
 # Keep structure
 !*.keep
+
+# Project
+/Results

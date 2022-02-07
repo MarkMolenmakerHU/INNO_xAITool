@@ -8,6 +8,7 @@ def train_ai_model(ai_class, dataset):
     print("Done training AI-Model!")
     return model, data, names, scores
 
+
 def train_xai_model(xai_class, model, data, names, file_name):
     print("Training  XAI-Model...")
     i = randint(0, data['X_test'].shape[0])

@@ -5,7 +5,7 @@ from xgboost import XGBClassifier
 
 
 class XgbAiModel(InterfaceAiModel):
-    def train_model(self, dataset):
+    def train_model(self, dataset: dict):
         # Split-out validation datasete
         X = dataset['data']
         y = dataset['targets']

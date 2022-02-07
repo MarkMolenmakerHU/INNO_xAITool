@@ -5,7 +5,7 @@ from sklearn.svm import SVC
 
 
 class SvmAiModel(InterfaceAiModel):
-    def train_model(self, dataset):
+    def train_model(self, dataset: dict):
         # Split-out validation dataset
         X = dataset['data']
         y = dataset['targets']

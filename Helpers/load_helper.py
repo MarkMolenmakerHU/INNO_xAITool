@@ -1,11 +1,23 @@
 import numpy as np
 from importlib.machinery import SourceFileLoader
 from inspect import getmembers, isclass
-from AI_Models.Models.interface_ai_model import InterfaceAiModel
 
 
-def load_dataset(path) -> dict:
-    file = open(path)
+def load_dataset(file_path: str) -> dict:
+    """
+    Read a file with our headers and creates a dictionary out of it.
+
+    Parameters
+    ----------
+    file_path
+        The path to the file to open.
+
+    Returns
+    -------
+    dict
+        A dictionary containing all the data for a dataset.
+    """
+    file = open(file_path)
     header = file.readline().strip('\n').split(',')
 
     feature_columns, target_columns = int(header[0]), int(header[1])
@@ -16,14 +28,31 @@ def load_dataset(path) -> dict:
     targets = table[:, feature_columns:(feature_columns + target_columns)]
 
     file.close()
-    return {'data': data, 'targets': targets, 'target_names': target_names, 'feature_names': None, 'filename': path}
+    return {'data': data, 'targets': targets, 'target_names': target_names, 'feature_names': None, 'file_path': file_path}
 
-def load_ai_model(path: str):
-    ai_class = load_class('ai_module', path, InterfaceAiModel)
-    return ai_class
 
 def load_class(module_name: str, module_path: str, base_model):
-    ai_module = SourceFileLoader(module_name, module_path).load_module()
-    inheritance_check = lambda class_type: issubclass(class_type, base_model) and not issubclass(base_model, class_type)
-    ai_class = [class_type for name, class_type in getmembers(ai_module, isclass) if inheritance_check(class_type)][0]
-    return ai_class()
+    """
+    Load a class based on a file path and a interface.
+
+    Parameters
+    ----------
+    module_name
+        A unique name for the module to load.
+    module_path
+        The path to the chosen module.
+    base_model
+        Base class/interface that needs to be on the file.
+
+    Returns
+    -------
+    loaded_class
+        The loaded class of the selected file with the interface.
+    """
+    module = SourceFileLoader(module_name, module_path).load_module()
+    loaded_class = [class_type for name, class_type in getmembers(module, isclass) if inheritance_check(class_type)][0]
+    return loaded_class()
+
+
+def inheritance_check(class_type, base_model):
+    return issubclass(class_type, base_model) and not issubclass(base_model, class_type)
